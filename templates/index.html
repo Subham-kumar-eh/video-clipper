@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clipper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="reel">
+
+  <header class="app-header">
+    <div class="sprockets" aria-hidden="true"></div>
+    <h1>Clipper</h1>
+    <p class="tag">Mark your in and out points. Get exactly those seconds, full quality, nothing else downloaded.</p>
+  </header>
+
+  <main class="deck">
+
+    <section class="card" id="load-card">
+      <label for="url-input">Video URL</label>
+      <div class="url-row">
+        <input id="url-input" type="text" placeholder="https://..." autocomplete="off" spellcheck="false">
+        <button id="load-btn" class="btn primary">Load</button>
+      </div>
+      <p id="load-error" class="error" hidden></p>
+    </section>
+
+    <section class="card" id="clip-card" hidden>
+      <div class="video-meta">
+        <img id="thumb" alt="">
+        <div class="video-meta-text">
+          <h2 id="video-title">&nbsp;</h2>
+          <p id="video-sub" class="mono muted">&nbsp;</p>
+        </div>
+      </div>
+
+      <div class="timecodes">
+        <div class="tc-field">
+          <label for="start-input">In point</label>
+          <input id="start-input" class="mono" type="text" value="00:00:00" inputmode="numeric">
+        </div>
+        <div class="tc-field">
+          <label for="end-input">Out point</label>
+          <input id="end-input" class="mono" type="text" value="00:00:10" inputmode="numeric">
+        </div>
+        <div class="tc-field">
+          <label for="quality-select">Quality</label>
+          <select id="quality-select">
+            <option value="best">Best available</option>
+            <option value="1080p">Up to 1080p</option>
+            <option value="720p">Up to 720p</option>
+            <option value="480p">Up to 480p</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="ruler" aria-hidden="true"></div>
+
+      <button id="clip-btn" class="btn primary big">Clip it</button>
+      <p id="clip-error" class="error" hidden></p>
+    </section>
+
+    <section class="card" id="progress-card" hidden>
+      <p id="progress-message" class="mono">Working...</p>
+      <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+      <a id="download-link" class="btn primary" hidden download>Download clip</a>
+      <button id="reset-btn" class="btn ghost" hidden>Clip another</button>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Runs entirely on your machine. Nothing goes anywhere except a request to the video's own host.</p>
+  </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
