@@ -66,3 +66,9 @@ Open **http://127.0.0.1:5000** in your browser.
 ## License
 
 [MIT](LICENSE)
+
+Disclaimer
+
+Clipper is provided as-is, without guarantees of availability, accuracy, or fitness for any particular purpose. The developers are not responsible for data loss, failed downloads, corrupted files, service restrictions, or any other issues resulting from the use of this software.
+
+Clipper itself does not provide or host video content. Users are responsible for ensuring that their use of downloaded material complies with applicable laws, licenses, and the terms of the websites they use.
